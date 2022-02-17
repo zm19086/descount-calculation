@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>値引計算ツール</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <a name="top"></a>
+    <p class="header">値引計算ツール</p>
+    <div class="descriptions">
+      <p class="descriptipn">
+        <span class="b">◯%引き</span> <span class="b">◯割引き</span> <span class="b">◯円引き</span> の値引き後の値段を簡単に調べることができます。
+        [商品金額]に、掲示されている値引き前の金額(税込)を入力することで、税抜価格が判明します。
+        税抜価格が判明したら、下にある[値引数値]に値引きされる割合を入力して、値引単位を選択します。
+        <span class="exam">
+          (例: <span class="b">30%引き</span> の場合、<span class="b">[値引数値]に「30」</span>と入力し、<span class="b">[パーセント]ボタン</span>を押す)
+        </span>
+      </p>
+        すると、<span class="b1">計算結果</span>に、値引後の金額が表示されます。お買い物の際に、ご活用ください。
+      </p>
+      <p class="caution">※計算で出た端数は四捨五入しています。<br>商品提供企業により端数の切り捨て切り上げが異なるため多少の誤差が生じることがあります。予めご了承ください。</p>
+    </div>
+    <hr>
+    <div class="taxchecker">
+      <div class="subheader">税抜価格を調べる</div>
+      <form name="check">
+        <label>商品金額: <input type="text" name="total" id="totalPrice"> ¥</label><br>
+        <label>税率: <a onclick="tax8();" class="percentbtn btn" alt="税率8%">8%</a><a onclick="tax10();" class="percentbtn btn" alt="税率10%">10%</a></label>
+      </form>
+      <p class="result">税抜価格は <span id="nontaxResult"> - </span> 円です。</p>
+    </div>
+    <div class="nontax">
+      <div class="subheader1">値引き計算</div>
+      <form name="calculation">
+        <label>税抜価格: <input type="text" name="Price1" id="prices" value="" alt="税抜価格"> ¥</label><br>
+        <label>値引数値: <input type="text" name="discountNumber" id="discounts" alt="割引数値"></label>
+      </form>
+      <div class="pattern">
+        <a onclick="percent();" class="percent btn">パーセント引き</a>
+        <a onclick="wari();" class="wari btn">割引き</a>
+        <a onclick="yen();" class="yen btn">円引き</a>
+      </div>
+      <div class="result">
+        <p class="subheader">計算結果:</p>
+        <div class="result1">
+          <p>税抜: <span id="tax"> - </span>円です。</p>
+          <p>税込(8%)の場合: <span id="tax1"> - </span> 円です。</p>
+          <p>税込(10%)の場合: <span id="tax2"> - </span> 円です。</p>
+        </div>
+      </div>
+    </div>
+    <div class="clearpage">
+      <a href="#top" onclick="cl();" class="reset btn">リセット</a>
+    </div>
+  </main>
+</body>
+</html>
